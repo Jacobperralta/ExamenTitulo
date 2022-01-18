@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link href="./styles.css">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </head>
 <body>
     <form id="Login" name="Login">
@@ -13,8 +14,9 @@
         <input type="email" id="Correo" name="Correo" placeholder="Correo"></input>
         <input type="password" id="Contraseña" name="Contraseña" placeholder="Ingrese su contraseña"></input>
         <button type="button" id="Ingresar" name="Ingresar">Ingresar</button>
-        <button type="button" id="Registrarse" onclick="Registrarse()" name="Registrarse">Registrarse</button>
+        <button type="button" id="Registrarse" onclick="registrarse()" name="Registrarse" class="btn btn-info">Registrarse</button>
     </form> 
+    <p id="msg"></p>
     <script src="Login.js"></script>
 </body>
 </html>

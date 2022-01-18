@@ -1,6 +1,8 @@
 package com.examentitulo.uv.mx;
 
 import static spark.Spark.*;
+import com.google.gson.Gson;
+import com.examentitulo.uv.mx.DB.*;
 
 //Puerto de Acceso es 4567
 
@@ -9,6 +11,7 @@ public class App
     public static void main( String[] args )
     {
         staticFiles.location("/");
+        init();
         options("/*", (request, response) ->{
             String accessControlRequestHeaders = request.headers("Access-Control-Request-Headers");
             if(accessControlRequestHeaders != null){
@@ -28,6 +31,17 @@ public class App
         get("/", (req, res) ->{
         res.redirect("Login.html");
         return null;
-    });
+        });
+
+        post("/Ingresar", (req, res) -> {
+            Gson gson = new Gson();
+            Usuario usuarioNew = gson.fromJson(req.body(), Usuario.class);
+            Usuario u = DAO.validarUsuario(usuarioNew.getCorreo(), usuarioNew.getContraseña());
+            if(u!=null){
+                return "SI";
+            }else{
+                return "NO";
+            }
+        });
     }
 }
