@@ -1,16 +1,17 @@
-var btnRegistrar = document.getElementById("Registrarse");
-btnRegistrar.addEventListener('click', registrarse);
+var btnRegistrar = document.getElementById('Registrar');
+btnRegistrar.addEventListener('click', Registrar);
 var correo, contraseña;
+
 var msg=document.getElementById('msg');
-function registrarse(e){
-    correo= document.getElementById('Correo');
-    contraseña= document.getElementById('Contraseña');
+function Registrar(e){
+    correo= document.getElementById('Correo').value;
+    contraseña= document.getElementById('Contraseña').value;
     if(correo){
         if(contraseña){
             msg.innerHTML="";
             axios.post('http://localhost:4567/Registrar',{
-                Correo: correo,
-                Contraseña: contraseña,
+                correo: correo,
+                contraseña: contraseña,
                 completed: false
             })
 

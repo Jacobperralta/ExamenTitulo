@@ -33,6 +33,16 @@ public class App
         return null;
         });
 
+        post("/Registrar", (req, res) ->{
+            Gson gson = new Gson();
+            Usuario usuarioNew= gson.fromJson(req.body(), Usuario.class);
+            if(DAO.Registrar(usuarioNew)){
+                return "SI";
+            }else{
+                return "NO";
+            }
+        });
+
         post("/Ingresar", (req, res) -> {
             Gson gson = new Gson();
             Usuario usuarioNew = gson.fromJson(req.body(), Usuario.class);

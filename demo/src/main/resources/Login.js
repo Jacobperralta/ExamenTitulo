@@ -8,8 +8,8 @@ function Ingresar(e){
     if(correo){
         if(contraseña){
             axios.post('http://localhost:4567/Ingresar',{
-                Correo: correo,
-                Contraseña: contraseña,
+                correo: correo,
+                contraseña: contraseña,
                 completed: false
             })
             .then(function(response){

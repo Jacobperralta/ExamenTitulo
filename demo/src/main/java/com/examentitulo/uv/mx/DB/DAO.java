@@ -10,7 +10,7 @@ public class DAO {
     public static boolean Registrar(Usuario u){
         boolean result =false;
     try{
-        String query = "INSERT INTO "+table+" (nombre, contraseña)" + "VALUES (?, ?)";
+        String query = " insert into "+table+" (correo, contraseña)" + " VALUES (?, ?)";
         PreparedStatement PS = Conexion.getConexion().prepareStatement(query);
         PS.setString(1, u.getCorreo());
         PS.setString(2, u.getContraseña());
