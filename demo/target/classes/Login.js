@@ -16,7 +16,7 @@ function Ingresar(e){
                 console.log(response.data);
                 if(response.data === 'SI'){
                     document.getElementById('msg').innerHTML="Acceso concedido. ";
-                    window.location.href="DatosUsuario.html";
+                    window.location.href="/DatosUsuario.html?correo=" + correo;
                 }else{
                     document.getElementById('msg').innerHTML="Acceso denegado, verifique sus datos";
                 }
